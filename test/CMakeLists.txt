@@ -13,6 +13,9 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../modules)
 include(install_paths)
 include(library_suffix)
 include(embedded_resources)
+include(scm_info)
+
+print_scm_info()
 
 generate_resources(TARGET resources RESOURCES ../README.md ../modules/embedded_resources.cmake)
 add_library_suffix(resources VERSIONED)
