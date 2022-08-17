@@ -1,0 +1,5 @@
+if(NOT DEFINED EXTERNAL_INSTALL_LOCATION)
+  message(FATAL_ERROR "EXTERNAL_INSTALL_LOCATION not set")
+endif()
+
+include(ExternalProject)
