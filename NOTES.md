@@ -6,6 +6,7 @@
 
 * <https://github.com/lefticus/project_options>
 * <https://github.com/StableCoder/cmake-scripts>
+* <https://github.com/vector-of-bool/cmrc>
 
 ### VS Code
 
