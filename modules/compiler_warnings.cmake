@@ -2,14 +2,18 @@
 #
 # https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 
-function(
-  set_project_warnings
-  project_name
-  WARNINGS_AS_ERRORS
-  MSVC_WARNINGS
-  CLANG_WARNINGS
-  GCC_WARNINGS
-  CUDA_WARNINGS)
+function(set_project_warnings project_name)
+  set(options WARNINGS_AS_ERRORS)
+  set(oneValueArgs MSVC_WARNINGS CLANG_WARNINGS GCC_WARNINGS CUDA_WARNINGS)
+  set(multiValueArgs )
+  cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+  set(WARNINGS_AS_ERRORS ${ARG_WARNINGS_AS_ERRORS})
+  set(MSVC_WARNINGS "${ARG_MSVC_WARNINGS}")
+  set(CLANG_WARNINGS "${ARG_CLANG_WARNINGS}")
+  set(GCC_WARNINGS "${ARG_GCC_WARNINGS}")
+  set(CUDA_WARNINGS "${CUDA_WARNINGS}")
+
   if("${MSVC_WARNINGS}" STREQUAL "")
     set(MSVC_WARNINGS
         /W4 # Baseline reasonable warnings
