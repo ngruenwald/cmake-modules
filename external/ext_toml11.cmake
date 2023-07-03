@@ -16,5 +16,3 @@ AddExternalProject(
     -D CMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
     -D toml11_BUILD_TESTS=OFF
 )
-
-add_dependencies(contrib toml11)

@@ -11,5 +11,3 @@ AddExternalProject(
     -D CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -D CMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
 )
-
-add_dependencies(contrib fundus)

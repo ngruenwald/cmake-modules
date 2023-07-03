@@ -17,5 +17,3 @@ AddExternalProject(
     -D ARGPARSE_BUILD_TESTS=OFF
     -D ARGPARSE_LONG_VERSION_ARG_ONLY=OFF
 )
-
-add_dependencies(contrib argparse)

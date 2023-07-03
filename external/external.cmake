@@ -20,8 +20,27 @@ endif()
 
   include(FetchContent)
 
+  macro(AddExternalProjectDependency)
+    foreach(arg IN LISTS ARGN)
+      if(NOT ${arg} IN_LIST EXTERNAL_PROJECTS)
+        list(APPEND EXTERNAL_PROJECTS ${arg})
+      endif()
+    endforeach()
+  endmacro()
+
   macro(AddExternalProject)
     FetchContent_Declare(${ARGV})
-    FetchContent_MakeAvailable(${ARGV0})
+    # FetchContent_MakeAvailable(${ARGV0})
+    if(NOT ${ARGV0} IN_LIST EXTERNAL_PROJECTS)
+      list(APPEND EXTERNAL_PROJECTS ${ARGV0})
+    endif()
+  endmacro()
+
+  macro(MakeExternalProjectsAvailable)
+    FetchContent_MakeAvailable(${EXTERNAL_PROJECTS})
+
+    if(NOT "${ARGV0}" STREQUAL "")
+      add_dependencies(${ARGV0} ${EXTERNAL_PROJECTS})
+    endif()
   endmacro()
 #endif()

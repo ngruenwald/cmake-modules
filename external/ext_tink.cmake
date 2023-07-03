@@ -7,7 +7,7 @@ set(EXT_VERSION "2.0.0")
 set(EXT_URL_HASH "SHA256=103ddfce800e77f3b3b6b2c808a8611bc734b31ddb12fbcfd8bebc1b96a7e963")
 
 AddExternalProject(
-  tink
+  tink_core_cc
   UPDATE_DISCONNECTED true
   URL https://github.com/tink-crypto/tink-cc/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -20,5 +20,3 @@ AddExternalProject(
 #    -D TINK_USE_INSTALLED_GOOGLETEST=OFF
 #    -D USE_ONLY_FIPS=OFF
 )
-
-add_dependencies(contrib tink::static)

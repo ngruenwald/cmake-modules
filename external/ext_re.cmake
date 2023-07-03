@@ -23,5 +23,3 @@ AddExternalProject(
     -D LIBRE_BUILD_SHARED=OFF
     -D LIBRE_BUILD_STATIC=ON
 )
-
-add_dependencies(contrib re)

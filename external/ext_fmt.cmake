@@ -18,5 +18,3 @@ AddExternalProject(
     -D FMT_DOC=OFF
     -D FMT_TEST=OFF
 )
-
-add_dependencies(contrib fmt)

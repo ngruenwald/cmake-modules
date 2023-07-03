@@ -7,7 +7,7 @@ set(EXT_VERSION "3.6.2")
 set(EXT_URL_HASH "SHA256=ccd2f24a620ec11421debb630dd0c8019e5c5fac23ecf9edb6d75936a0968206")
 
 AddExternalProject(
-  libarchive
+  archive
   UPDATE_DISCONNECTED true
   URL https://github.com/libarchive/libarchive/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -48,5 +48,3 @@ AddExternalProject(
     -D ENABLE_COVERAGE=OFF
     -D ENABLE_INSTALL=ON
 )
-
-add_dependencies(contrib archive_static)

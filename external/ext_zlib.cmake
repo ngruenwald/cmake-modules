@@ -20,5 +20,3 @@ AddExternalProject(
     -D OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}
     -D BUILD_SHARED_LIBS=OFF
 )
-
-add_dependencies(contrib zlib)

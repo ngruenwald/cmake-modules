@@ -7,7 +7,7 @@ set(EXT_VERSION "1.9.1")
 set(EXT_URL_HASH "SHA256=c61f4c6f820b04b920f35f84a3867cd44138bac4da21d21fbc00645c97e2051e")
 
 AddExternalProject(
-  opentelemetry
+  opentelemetry_api
   UPDATE_DISCONNECTED true
   URL https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -23,5 +23,3 @@ AddExternalProject(
     -D WITH_EXAMPLES=OFF
     -D BUILD_TESTING=OFF
 )
-
-add_dependencies(contrib opentelemetry_trace)

@@ -18,5 +18,3 @@ AddExternalProject(
     -D JSON_MultipleHeaders=OFF
   OVERRIDE_FIND_PACKAGE
 )
-
-add_dependencies(contrib nlohmann_json)

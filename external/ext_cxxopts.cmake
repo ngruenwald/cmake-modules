@@ -17,5 +17,3 @@ AddExternalProject(
     -D CXXOPTS_BUILD_EXAMPLES=OFF
     -D CXXOPTS_BUILD_TESTS=OFF
 )
-
-add_dependencies(contrib cxxopts)

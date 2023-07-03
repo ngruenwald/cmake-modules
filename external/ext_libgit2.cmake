@@ -18,5 +18,3 @@ AddExternalProject(
     -D BUILD_TESTS=OFF
     -D USE_THREADS=ON
 )
-
-add_dependencies(contrib libgit2)

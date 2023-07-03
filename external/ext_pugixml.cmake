@@ -16,5 +16,3 @@ AddExternalProject(
     -D CMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
     -D PUGIXML_USE_STATIC_CRT=OFF
 )
-
-add_dependencies(contrib pugixml)

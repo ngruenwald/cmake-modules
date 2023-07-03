@@ -24,5 +24,3 @@ AddExternalProject(
     -D HTTPLIB_REQUIRE_OPENSSL=ON ${OPENSSL_ARGS}
     -D BUILD_SHARED_LIBS=OFF
 )
-
-add_dependencies(contrib httplib)

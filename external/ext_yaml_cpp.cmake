@@ -17,5 +17,3 @@ AddExternalProject(
     -D YAML_BUILD_SHARED_LIBS=OFF
     -D YAML_CPP_BUILD_TESTS=OFF
 )
-
-add_dependencies(contrib yaml-cpp)

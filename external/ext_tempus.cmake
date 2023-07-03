@@ -17,5 +17,3 @@ AddExternalProject(
     -D UNIT_TESTS=OFF
     -D TOOLS=OFF
 )
-
-add_dependencies(contrib tempus)
