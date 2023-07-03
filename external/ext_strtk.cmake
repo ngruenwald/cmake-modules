@@ -1,4 +1,4 @@
-include(external.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
 set(STRTK_VERSION "master")
 set(STRTK_HASH "")

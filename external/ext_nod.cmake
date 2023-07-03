@@ -1,4 +1,7 @@
-include(external.cmake)
+# source: https://github.com/fr00b0/nod
+# target:
+
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
 set(EXT_VERSION "0.5.4")
 set(EXT_URL_HASH "SHA256=e5f9880d6bb526b8e538285e62741745e19ebf3655e2959d206e724c80c69e32")

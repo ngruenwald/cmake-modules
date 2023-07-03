@@ -1,14 +1,18 @@
+# source: https://github.com/gabime/spdlog
+# target: spdlog::spdlog
+# depends: nlohmann_fmt
+
 #
 # DEPENDENCIES: ext_fmt
 #
 
-include(external.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "1.10.0")
-set(EXT_URL_HASH "SHA256=7be28ff05d32a8a11cfba94381e820dd2842835f7f319f843993101bcab44b66")
+set(EXT_VERSION "1.11.0")
+set(EXT_URL_HASH "SHA256=33f83c6b86ec0fbbd0eb0f4e980da6767494dc0ad063900bcfae8bc3e9c75f21")
 
-ExternalProject_Add(
-  ext_spdlog
+AddExternalProject(
+  spdlog
   UPDATE_DISCONNECTED true
   URL https://github.com/gabime/spdlog/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -19,7 +23,7 @@ ExternalProject_Add(
     -D SPDLOG_INSTALL=ON
     -D SPDLOG_FMT_EXTERNAL=ON
     -D SPDLOG_CLOCK_COARSE=OFF
-  DEPENDS ext_fmt
+  DEPENDS nlohmann_json::nlohmann_json
 )
 
-add_dependencies(contrib ext_spdlog)
+add_dependencies(contrib spdlog)

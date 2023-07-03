@@ -1,4 +1,7 @@
-include(external.cmake)
+# source: https://github.com/yhirose/cpp-httplib
+# target: httplib::httplib
+
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
 set(EXT_VERSION "0.12.6")
 set(EXT_URL_HASH "SHA256=bdeb6be5f30cce0544204ed50bcb9b15ca0f9b360c148cbf75f0664584ac92d9")
@@ -9,8 +12,8 @@ else()
   set(OPENSSL_ARGS "")
 endif()
 
-ExternalProject_Add(
-  ext_httplib
+AddExternalProject(
+  httplib
   UPDATE_DISCONNECTED true
   URL https://github.com/yhirose/cpp-httplib/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -22,4 +25,4 @@ ExternalProject_Add(
     -D BUILD_SHARED_LIBS=OFF
 )
 
-add_dependencies(contrib ext_httplib)
+add_dependencies(contrib httplib)

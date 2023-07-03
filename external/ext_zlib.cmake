@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/madler/zlib
+# target: zlibstatic, zlib
 
-set(EXT_VERSION "1.2.12")
-set(EXT_URL_HASH "SHA256=7c9917b80c125e317e44c9d83a4c15390dac9967df27397024beaf4342e0f8cd")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_zlib
+set(EXT_VERSION "1.2.13")
+set(EXT_URL_HASH "SHA256=c2856951bbf30e30861ace3765595d86ba13f2cf01279d901f6c62258c57f4ff")
+
+AddExternalProject(
+  zlib
   UPDATE_DISCONNECTED true
   URL https://github.com/madler/zlib/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -18,4 +21,4 @@ ExternalProject_Add(
     -D BUILD_SHARED_LIBS=OFF
 )
 
-add_dependencies(contrib ext_zlib)
+add_dependencies(contrib zlib)

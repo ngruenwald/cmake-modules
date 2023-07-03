@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/zeux/pugixml
+# target: pugixml::static, pugixml::shared
 
-set(EXT_VERSION "1.12.1")
-set(EXT_URL_HASH "SHA256=3b535bb2f2bddd7edbcc2467ffc085edb652cc1c9462444ec8cc2849bb2e73fb")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_pugixml
+set(EXT_VERSION "1.13")
+set(EXT_URL_HASH "SHA256=f39095550ed704c2e73e36ff6736278217c00bf22f5fc7511433cea0dfa85459")
+
+AddExternalProject(
+  pugixml
   UPDATE_DISCONNECTED true
   URL https://github.com/zeux/pugixml/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -14,4 +17,4 @@ ExternalProject_Add(
     -D PUGIXML_USE_STATIC_CRT=OFF
 )
 
-add_dependencies(contrib ext_pugixml)
+add_dependencies(contrib pugixml)

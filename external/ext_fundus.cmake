@@ -1,20 +1,15 @@
-include(external.cmake)
+# source: https://github.com/ngruenwald/fundus
+# target: fundus::fundus
 
-ExternalProject_Add(
-  ext_fundus
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
+
+AddExternalProject(
+  fundus
   UPDATE_DISCONNECTED true
   URL https://github.com/ngruenwald/fundus/archive/refs/heads/main.zip
-  CONFIGURE_COMMAND ""
-  BUILD_COMMAND ""
-  BUILD_IN_SOURCE TRUE
-  INSTALL_COMMAND
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${EXTERNAL_INSTALL_LOCATION}/include/fundus
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-      ${CMAKE_CURRENT_BINARY_DIR}/ext_fundus-prefix/src/ext_fundus
-      ${EXTERNAL_INSTALL_LOCATION}/include/fundus
+  CMAKE_ARGS
+    -D CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    -D CMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
 )
 
-add_library(fundus::fundus INTERFACE IMPORTED GLOBAL)
-set_target_properties(fundus::fundus PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${EXTERNAL_INSTALL_LOCATION}/include/fundus)
-
-add_dependencies(contrib ext_fundus)
+add_dependencies(contrib fundus)

@@ -1,9 +1,12 @@
-include(external.cmake)
+# source: https://github.com/bfgroup/Lyra
+# target: bfg::lyra
 
-set(EXT_VERSION "1.6")
-set(EXT_URL_HASH "SHA256=e27c6eca98dad626bd17c236aea57cc8ab8e72dea0c66e140d0ce18740ba4d5b")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
+set(EXT_VERSION "1.6.1")
+set(EXT_URL_HASH "SHA256=bc1bba5d4897205484c2f135db825f1189a74520592ee59d4f58b36c58c92f35")
+
+AddExternalProject(
   lyra
   UPDATE_DISCONNECTED true
   URL https://github.com/bfgroup/Lyra/archive/refs/tags/${EXT_VERSION}.zip

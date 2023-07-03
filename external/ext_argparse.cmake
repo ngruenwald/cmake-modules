@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/p-ranav/argparse
+# target: argparse::argparse
 
-set(EXT_VERSION "2.6")
-set(EXT_URL_HASH "SHA256=ce4e58d527b83679bdcc4adfa852af7ec9df16b76c11637823ef642cb02d2618")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_argparse
+set(EXT_VERSION "2.9")
+set(EXT_URL_HASH "SHA256=55396ae05d9deb8030b8ad9babf096be9c35652d5822d8321021bcabb25f4b72")
+
+AddExternalProject(
+  argparse
   UPDATE_DISCONNECTED true
   URL https://github.com/p-ranav/argparse/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -15,4 +18,4 @@ ExternalProject_Add(
     -D ARGPARSE_LONG_VERSION_ARG_ONLY=OFF
 )
 
-add_dependencies(contrib ext_argparse)
+add_dependencies(contrib argparse)

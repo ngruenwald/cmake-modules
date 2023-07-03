@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/catchorg/Catch2
+# target: Catch2::Catch2WithMain, Catch2::Catch2
 
-set(EXT_VERSION "3.1.0")
-set(EXT_URL_HASH "SHA256=7219c2ca75a6b2a157b1b162e4ad819fb32585995cac32542a4f72d950dd96f7")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_catch2
+set(EXT_VERSION "3.3.2")
+set(EXT_URL_HASH "SHA256=802a1d7f98f8e38a7913b596c5e3356ea76c544acb7c695bfd394544556359f3")
+
+AddExternalProject(
+  catch2
   UPDATE_DISCONNECTED true
   URL https://github.com/catchorg/Catch2/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -15,4 +18,4 @@ ExternalProject_Add(
     -D CATCH_INSTALL_EXTRAS=OFF
 )
 
-add_dependencies(contrib ext_catch2)
+add_dependencies(contrib Catch2::Catch2)

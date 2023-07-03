@@ -1,7 +1,7 @@
-include(external.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "2.6.0")
-set(EXT_URL_HASH "SHA256=5af2d27a134f08f76a361adc97920d13406c0dbf003005ffdf0d65c55783a9ff")
+set(EXT_VERSION "2.12.0")
+set(EXT_URL_HASH "SHA256=b10522c100cdf7721867ead7e2e6aba94aff3796e895971e04e14fc7858c394d")
 
 ExternalProject_Add(
   ext_rem

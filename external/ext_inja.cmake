@@ -1,14 +1,16 @@
-#
-# DEPENDENCIES: ext_json
-#
+# source: https://github.com/pantor/inja
+# target: pantor::inja
+# depends: nlohmann_json
 
-include(external.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/ext_json.cmake)
 
-set(EXT_VERSION "3.3.0")
-set(EXT_URL_HASH "SHA256=a95e95ff39961be429d564689d265a2eb2f269cb180bb0028c842a7484916cb6")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_inja
+set(EXT_VERSION "3.4.0")
+set(EXT_URL_HASH "SHA256=4ad04d380b8377874c7a097a662c1f67f40da5fb7d3abc3851544f59c3613a20")
+
+AddExternalProject(
+  inja
   UPDATE_DISCONNECTED true
   URL https://github.com/pantor/inja/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -21,7 +23,7 @@ ExternalProject_Add(
     -D BUILD_TESTING=OFF
     -D INJA_BUILD_TESTS=OFF
     -D BUILD_BENCHMARK=OFF
-  DEPENDS ext_json
+  DEPENDS nlohmann_json::nlohmann_json
 )
 
-add_dependencies(contrib ext_inja)
+add_dependencies(contrib inja)

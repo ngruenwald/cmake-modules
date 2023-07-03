@@ -1,9 +1,12 @@
-include(external.cmake)
+# source: https://github.com/libgit2/libgit2
+# target: libgit2
 
-set(EXT_VERSION "1.5.0")
-set(EXT_URL_HASH "SHA256=997058b57c4f16d3c9753c80a9df842a937e6b503170881312bbb28f9808e20c")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
+set(EXT_VERSION "1.6.4")
+set(EXT_URL_HASH "SHA256=2f1e72eed29918e44113ccd69e166af9b07e5a10ff48927a012381f38dc3e9c2")
+
+AddExternalProject(
   libgit2
   UPDATE_DISCONNECTED true
   URL https://github.com/libgit2/libgit2/archive/refs/tags/v${EXT_VERSION}.zip

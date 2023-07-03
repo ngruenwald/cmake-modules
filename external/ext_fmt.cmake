@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/fmtlib/fmt
+# target: fmt::fmt
 
-set(EXT_VERSION "9.0.0")
-set(EXT_URL_HASH "SHA256=01867bffc0b30ac71d5f05854e62e451367fa1aceddef40cae965338a7e00a74")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_fmt
+set(EXT_VERSION "10.0.0")
+set(EXT_URL_HASH "SHA256=5bf4d5358301fdf3bd100c01b9d4c1fbb2091dc2267fb4fa6d7cd522b3e47179")
+
+AddExternalProject(
+  fmt
   UPDATE_DISCONNECTED true
   URL https://github.com/fmtlib/fmt/archive/refs/tags/${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -16,4 +19,4 @@ ExternalProject_Add(
     -D FMT_TEST=OFF
 )
 
-add_dependencies(contrib ext_fmt)
+add_dependencies(contrib fmt)
