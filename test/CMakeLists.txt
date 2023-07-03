@@ -74,3 +74,7 @@ target_link_libraries(test PRIVATE tink::static)
 target_link_libraries(test PRIVATE toml11::toml11)
 target_link_libraries(test PRIVATE yaml-cpp::yaml-cpp)
 target_link_libraries(test PRIVATE zlibstatic)
+
+# FIXME: re does not set include directory
+get_target_property(resrc libre::re SOURCE_DIR)
+target_include_directories(test PRIVATE ${resrc}/include)
