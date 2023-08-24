@@ -1,12 +1,15 @@
+# source: https://github.com/ArashPartow/strtk
+# target:
+
 include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(STRTK_VERSION "master")
-set(STRTK_HASH "")
+set(EXT_VERSION "master")
+set(ET_URL_HASH "")
 
 AddExternalProject(
   ext_strtk
   UPDATE_DISCONNECTED true
-  URL https://github.com/ArashPartow/strtk/archive/${STRTK_VERSION}.zip
+  URL https://github.com/ArashPartow/strtk/archive/${EXT_VERSION}.zip
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
