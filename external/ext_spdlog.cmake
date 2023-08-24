@@ -8,8 +8,8 @@
 
 include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "1.11.0")
-set(EXT_URL_HASH "SHA256=33f83c6b86ec0fbbd0eb0f4e980da6767494dc0ad063900bcfae8bc3e9c75f21")
+set(EXT_VERSION "1.12.0")
+set(EXT_URL_HASH "SHA256=6174bf8885287422a6c6a0312eb8a30e8d22bcfcee7c48a6d02d1835d7769232")
 
 AddExternalProjectDependency(fmt)
 
