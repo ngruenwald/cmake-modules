@@ -3,8 +3,8 @@
 
 include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "0.7.0")
-set(EXT_URL_HASH "SHA256=4d5e664a7fb2d7445fc548cc8c0e1aa7b1a496540eb382d137e2cc263e6d3ef5")
+set(EXT_VERSION "0.8.0")
+set(EXT_URL_HASH "SHA256=334e80ab7b52e14c23f94e041c74bab0742f2281aad55f66be2f19f4b7747071")
 
 AddExternalProject(
   yaml-cpp
