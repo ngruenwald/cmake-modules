@@ -3,8 +3,8 @@
 
 include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "1.9.1")
-set(EXT_URL_HASH "SHA256=c61f4c6f820b04b920f35f84a3867cd44138bac4da21d21fbc00645c97e2051e")
+set(EXT_VERSION "1.11.0")
+set(EXT_URL_HASH "SHA256=c660afdd88b212acc9b4c9735ce90b1e906fce650511fc2ba917dd9a1f0098b6")
 
 AddExternalProject(
   opentelemetry_api
