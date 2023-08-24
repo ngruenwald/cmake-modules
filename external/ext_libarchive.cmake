@@ -3,8 +3,8 @@
 
 include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "3.6.2")
-set(EXT_URL_HASH "SHA256=ccd2f24a620ec11421debb630dd0c8019e5c5fac23ecf9edb6d75936a0968206")
+set(EXT_VERSION "3.7.1")
+set(EXT_URL_HASH "SHA256=16041be93a7c60d1ab6147102168a77b5a464a2cb579495ac1add89d8d1f3f74")
 
 AddExternalProject(
   archive
