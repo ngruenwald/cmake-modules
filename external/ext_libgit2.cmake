@@ -3,8 +3,8 @@
 
 include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-set(EXT_VERSION "1.6.4")
-set(EXT_URL_HASH "SHA256=2f1e72eed29918e44113ccd69e166af9b07e5a10ff48927a012381f38dc3e9c2")
+set(EXT_VERSION "1.7.1")
+set(EXT_URL_HASH "SHA256=f2d5622f538da8218c12f7d42aa66f44a5075965b52852579e4de75192cec215")
 
 AddExternalProject(
   libgit2
