@@ -2,7 +2,7 @@
 
 This module can be used to append a suffix to library binaries.
 
-On Windows the suffix will container the toolkit version and for 64-bit
+On Windows the suffix will contain the toolkit version and for 64-bit
 builds the architecture.
 
 On Linux the suffix will contain the version, if the _VERSIONED_ flag is set.

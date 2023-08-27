@@ -1,12 +1,15 @@
-include(external.cmake)
+# source: https://github.com/ArashPartow/strtk
+# target:
 
-set(STRTK_VERSION "master")
-set(STRTK_HASH "")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
+set(EXT_VERSION "master")
+set(ET_URL_HASH "")
+
+AddExternalProject(
   ext_strtk
   UPDATE_DISCONNECTED true
-  URL https://github.com/ArashPartow/strtk/archive/${STRTK_VERSION}.zip
+  URL https://github.com/ArashPartow/strtk/archive/${EXT_VERSION}.zip
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
@@ -18,7 +21,5 @@ ExternalProject_Add(
   TEST_COMMAND ""
 )
 
-add_library(strtk::strtk INTERFACE IMPORTED GLOBAL)
-set_target_properties(strtk::strtk PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${EXTERNAL_INSTALL_LOCATION}/include")
-
-add_dependencies(contrib ext_strtk)
+#add_library(strtk::strtk INTERFACE IMPORTED GLOBAL)
+#set_target_properties(strtk::strtk PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${EXTERNAL_INSTALL_LOCATION}/include")

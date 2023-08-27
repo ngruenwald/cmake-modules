@@ -9,3 +9,4 @@
 
 * sanitizers.cmake (source: <https://github.com/StableCoder/cmake-scripts>)
 * compiler_warnings.cmake (source: <https://github.com/lefticus/project_options>)
+* print_target_properties.cmake (source: <https://stackoverflow.com/questions/32183975/how-to-print-all-the-properties-of-a-target-in-cmake>)

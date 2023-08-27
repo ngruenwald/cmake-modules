@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/libarchive/libarchive
+# target: archive_static, archive
 
-set(EXT_VERSION "3.6.0")
-set(EXT_URL_HASH "SHA256=f1ca9ab7a80c5caec9c2e06604a2f13910458dd6a59d3bdb620385fe3b8c49d5")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_libarchive
+set(EXT_VERSION "3.7.1")
+set(EXT_URL_HASH "SHA256=16041be93a7c60d1ab6147102168a77b5a464a2cb579495ac1add89d8d1f3f74")
+
+AddExternalProject(
+  archive
   UPDATE_DISCONNECTED true
   URL https://github.com/libarchive/libarchive/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -45,5 +48,3 @@ ExternalProject_Add(
     -D ENABLE_COVERAGE=OFF
     -D ENABLE_INSTALL=ON
 )
-
-add_dependencies(contrib ext_libarchive)
