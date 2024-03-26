@@ -147,3 +147,31 @@ function(_embedded_resources_get_output_file outfile infile cext)
   endif()
   set(${outfile} ${CMAKE_CURRENT_BINARY_DIR}/${fname} PARENT_SCOPE)
 endfunction()
+
+
+#
+# EXEC ... can be used when executed as standalone script
+#
+
+if(NOT "${EXEC}" STREQUAL "")
+  macro(_append_optional_arg args argname)
+    if(NOT "${${argname}}" STREQUAL "")
+      list(APPEND ${args} ${argname} ${${argname}})
+    endif()
+  endmacro()
+
+  if("${EXEC}" STREQUAL "generate_resources_header")
+    set(params)
+    _append_optional_arg(params RESOURCES)
+    _append_optional_arg(params PATH)
+    generate_resources_header(${params})
+  elseif("${EXEC}" STREQUAL "generate_resource_file")
+    set(params "${INFILE}")
+    _append_optional_arg(params OUTFILE)
+    _append_optional_arg(params LABEL)
+    _append_optional_arg(params CEXT)
+    generate_resource_file(${params})
+  else()
+    message(FATAL_ERROR "Invalid 'EXEC' command: '${EXEC}'")
+  endif()
+endif()
