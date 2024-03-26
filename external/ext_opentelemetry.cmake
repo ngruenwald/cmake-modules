@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/open-telemetry/opentelemetry-cpp
+# target:
 
-set(EXT_VERSION "1.6.0")
-set(EXT_URL_HASH "SHA256=205d70bceeeff570fd3d5e82267c1c39aec0492700cc40ecf0de1b3005aeeecf")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_opentelemetry
+set(EXT_VERSION "1.11.0")
+set(EXT_URL_HASH "SHA256=c660afdd88b212acc9b4c9735ce90b1e906fce650511fc2ba917dd9a1f0098b6")
+
+AddExternalProject(
+  opentelemetry_api
   UPDATE_DISCONNECTED true
   URL https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -20,5 +23,3 @@ ExternalProject_Add(
     -D WITH_EXAMPLES=OFF
     -D BUILD_TESTING=OFF
 )
-
-add_dependencies(contrib ext_opentelemetry)

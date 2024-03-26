@@ -1,0 +1,31 @@
+--- CMakeLists.txt.org  2023-07-03 21:52:22.944277573 +0200
++++ CMakeLists.txt      2023-07-03 21:53:00.994618957 +0200
+@@ -5,7 +5,7 @@
+
+
+ option(INJA_USE_EMBEDDED_JSON "Use the shipped json header if not available on the system" ON)
+-option(INJA_INSTALL "Generate install targets for inja" ON)
++option(INJA_INSTALL "Generate install targets for inja" OFF)
+ option(INJA_EXPORT "Export the current build tree to the package registry" ON)
+ option(BUILD_TESTING "Build unit tests" ON)
+ option(INJA_BUILD_TESTS "Build unit tests when BUILD_TESTING is enabled." ON)
+
+--- CMakeLists.txt.org	2023-07-03 21:33:15.677141205 +0200
++++ CMakeLists.txt	2023-07-03 21:37:47.713010498 +0200
+@@ -133,7 +133,7 @@
+   @ONLY
+ )
+
+-
++if(INJA_INSTALL)
+ install(TARGETS inja EXPORT injaTargets)
+
+
+@@ -142,6 +142,7 @@
+   NAMESPACE pantor::
+   FILE "${CMAKE_CURRENT_BINARY_DIR}/injaTargets.cmake"
+ )
++endif()
+
+ # build tree package config
+ configure_file(

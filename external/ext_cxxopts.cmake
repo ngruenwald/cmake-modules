@@ -1,10 +1,13 @@
-include(external.cmake)
+# source: https://github.com/jarro2783/cxxopts
+# target: cxxopts::cxxopts
 
-set(EXT_VERSION "3.0.0")
-set(EXT_URL_HASH "SHA256=1eefdf5af3ba0c66458258de05df2a113262ad5e85cac489de0a456088e9f9b0")
+include(${CMAKE_CURRENT_LIST_DIR}/external.cmake)
 
-ExternalProject_Add(
-  ext_cxxopts
+set(EXT_VERSION "3.1.1")
+set(EXT_URL_HASH "SHA256=25b644a2bfa9c6704d723be51b026bc02420dfdee1277a49bfe5df3f19b0eaa4")
+
+AddExternalProject(
+  cxxopts
   UPDATE_DISCONNECTED true
   URL https://github.com/jarro2783/cxxopts/archive/refs/tags/v${EXT_VERSION}.zip
   URL_HASH ${EXT_URL_HASH}
@@ -14,5 +17,3 @@ ExternalProject_Add(
     -D CXXOPTS_BUILD_EXAMPLES=OFF
     -D CXXOPTS_BUILD_TESTS=OFF
 )
-
-add_dependencies(contrib ext_cxxopts)
