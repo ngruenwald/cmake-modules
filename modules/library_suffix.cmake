@@ -1,3 +1,6 @@
+# https://github.com/ngruenwald/cmake-modules
+# SPDX-License-Identifier: MIT
+
 #
 # add_library_suffix(target [VERSION version] [QIET] [VERSIONED])
 #

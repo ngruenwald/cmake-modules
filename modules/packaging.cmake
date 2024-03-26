@@ -1,3 +1,6 @@
+# https://github.com/ngruenwald/cmake-modules
+# SPDX-License-Identifier: MIT
+
 # Used variables
 #
 # LICENSE_FILE, CHANGELOG_FILE, README_FILE

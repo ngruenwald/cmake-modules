@@ -1,3 +1,6 @@
+# https://github.com/ngruenwald/cmake-modules
+# SPDX-License-Identifier: MIT
+
 #
 # setup_install_paths([NAME name] [VERSION version] [QUIET] [VERSIONED])
 #

@@ -1,3 +1,5 @@
+# https://github.com/ngruenwald/cmake-modules
+# SPDX-License-Identifier: MIT
 
 #
 # Reads an os-release file (https://www.linux.org/docs/man5/os-release.html)
@@ -319,4 +321,3 @@ endmacro()
 if(NOT DEFINED OS_AUTO_GATHER OR OS_AUTO_GATHER)
   gather_os_info()
 endif()
-
