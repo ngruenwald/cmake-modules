@@ -1,3 +1,6 @@
+# https://github.com/ngruenwald/cmake-modules
+# SPDX-License-Identifier: MIT
+
 # variables
 #
 # * PROJECT_VERSION_SCM (revision)
