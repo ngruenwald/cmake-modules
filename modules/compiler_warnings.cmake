@@ -2,7 +2,7 @@
 #
 # https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 
-function(set_project_warnings project_name)
+function(target_compiler_warnings target_name)
   set(options WARNINGS_AS_ERRORS)
   set(oneValueArgs MSVC_WARNINGS CLANG_WARNINGS GCC_WARNINGS CUDA_WARNINGS)
   set(multiValueArgs )
@@ -93,27 +93,27 @@ function(set_project_warnings project_name)
   endif()
 
   if(MSVC)
-    set(PROJECT_WARNINGS_CXX ${MSVC_WARNINGS})
+    set(TARGET_WARNINGS_CXX ${MSVC_WARNINGS})
   elseif(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
-    set(PROJECT_WARNINGS_CXX ${CLANG_WARNINGS})
+    set(TARGET_WARNINGS_CXX ${CLANG_WARNINGS})
   elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    set(PROJECT_WARNINGS_CXX ${GCC_WARNINGS})
+    set(TARGET_WARNINGS_CXX ${GCC_WARNINGS})
   else()
     message(AUTHOR_WARNING "No compiler warnings set for CXX compiler: '${CMAKE_CXX_COMPILER_ID}'")
     # TODO support Intel compiler
   endif()
 
   # use the same warning flags for C
-  set(PROJECT_WARNINGS_C "${PROJECT_WARNINGS_CXX}")
+  set(TARGET_WARNINGS_C "${TARGET_WARNINGS_CXX}")
 
-  set(PROJECT_WARNINGS_CUDA "${CUDA_WARNINGS}")
+  set(TARGET_WARNINGS_CUDA "${CUDA_WARNINGS}")
 
   target_compile_options(
-    ${project_name}
+    ${target_name}
     INTERFACE # C++ warnings
-              $<$<COMPILE_LANGUAGE:CXX>:${PROJECT_WARNINGS_CXX}>
+              $<$<COMPILE_LANGUAGE:CXX>:${TARGET_WARNINGS_CXX}>
               # C warnings
-              $<$<COMPILE_LANGUAGE:C>:${PROJECT_WARNINGS_C}>
+              $<$<COMPILE_LANGUAGE:C>:${TARGET_WARNINGS_C}>
               # Cuda warnings
-              $<$<COMPILE_LANGUAGE:CUDA>:${PROJECT_WARNINGS_CUDA}>)
+              $<$<COMPILE_LANGUAGE:CUDA>:${TARGET_WARNINGS_CUDA}>)
 endfunction()
