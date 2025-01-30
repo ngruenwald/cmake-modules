@@ -8,13 +8,14 @@
 # * SCM_TYPE
 # * SCM_BRANCH
 # * SCM_REVISION
+# * SCM_REVISION_DATE (ISO8601)
 # * SCM_TAG_VERSION
 # * SCM_TAG_VERSION_MAJOR
 # * SCM_TAG_VERSION_MINOR
 # * SCM_TAG_VERSION_PATCH
 # * SCM_TAG_VERSION_TWEAK
 
-function(_scm_info_get_git_info found branch revision)
+function(_scm_info_get_git_info found branch revision revdate)
   find_program(GIT git)
   if(GIT)
     execute_process(COMMAND ${GIT} branch --show-current OUTPUT_VARIABLE git_bra ERROR_QUIET)
@@ -24,10 +25,12 @@ function(_scm_info_get_git_info found branch revision)
       string(STRIP "${git_bra}" git_bra)
     endif()
     execute_process(COMMAND ${GIT} log --pretty=format:%h -n 1 OUTPUT_VARIABLE git_rev ERROR_QUIET)
+    execute_process(COMMAND ${GIT} log --pretty=format:%cI -n 1 OUTPUT_VARIABLE git_iso ERROR_QUIET)
     string(STRIP "${git_rev}" git_rev)
     set(${found}    TRUE       PARENT_SCOPE)
     set(${branch}   ${git_bra} PARENT_SCOPE)
     set(${revision} ${git_rev} PARENT_SCOPE)
+    set(${revdate}  ${git_iso} PARENT_SCOPE)
   else()
     set(${found} FALSE PARENT_SCOPE)
   endif()
@@ -61,11 +64,12 @@ function(_scm_info_extract_tag_version tag full major minor patch tweak)
 endfunction()
 
 macro(get_scm_info)
-  _scm_info_get_git_info(found branch revision)
+  _scm_info_get_git_info(found branch revision revdate)
   if(found)
     set(SCM_TYPE "git")
     set(SCM_BRANCH "${branch}")
     set(SCM_REVISION "${revision}")
+    set(SCM_REVISION_DATE "${revdate}")
     set(PROJECT_VERSION_SCM ${SCM_REVISION})
     _scm_info_extract_tag_version(
       "${SCM_BRANCH}"
@@ -101,6 +105,7 @@ function(print_scm_info)
   message("  TYPE:        ${SCM_TYPE}")
   message("  BRANCH:      ${SCM_BRANCH}")
   message("  REVISION:    ${SCM_REVISION}")
+  message("  REV_DATE:    ${SCM_REVISION_DATE}")
   message("  TAG_VERSION: ${SCM_TAG_VERSION}")
   if(SCM_TAG_VERSION)
     message("    MAJOR:     ${SCM_TAG_VERSION_MAJOR}")
